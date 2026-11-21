@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import Compare from "./components/Compare";
 function App() {
   
 
@@ -7,6 +8,7 @@ function App() {
     <main>
       <Navbar />
       <Hero />
+      <Compare />
     </main>
   )
 }

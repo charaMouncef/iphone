@@ -4,30 +4,33 @@
   font-family: "Regular";
   src: url("/fonts/regular.woff2") format("woff2");
   font-display: swap;
+  font-weight: 400;
 }
 
 @font-face {
   font-family: "Medium";
   src: url("/fonts/medium.woff2") format("woff2");
   font-display: swap;
+  font-weight: 500;
 }
 
 @font-face {
   font-family: "SemiBold";
   src: url("/fonts/semibold.woff2") format("woff2");
   font-display: swap;
+  font-weight: 600;
 }
 
 @font-face {
   font-family: "Bold";
   src: url("/fonts/bold.woff2") format("woff2");
   font-display: swap;
+  font-weight: 700;
 }
 
 * {
   scrollbar-color: var(--color-dark-100) var(--color-black);
 }
-
 
 @theme {
   --font-regular: "Regular";

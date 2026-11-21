@@ -20,11 +20,11 @@ export default function Hero() {
         <source src="/videos/hero.mp4" type="video/mp4" />
       </video>
 
-      <div className="flex flex-col  p-3 md:absolute md:bottom-8 md:left-8">
+      <div className="flex flex-col p-3 md:absolute md:bottom-8 md:left-8">
         <h1 className="text-white text-2xl md:text-6xl font-bold">
           iPhone 18 Pro
         </h1>
-        <h3 className="text-sm md:text-xl text-dark-100 uppercase font-semibold">
+        <h3 className="text-sm md:text-xl text-dark-100 font-semibold">
           Pro further.
         </h3>
         <div className="flex justify-between items-center gap-4">
