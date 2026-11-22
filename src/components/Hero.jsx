@@ -28,8 +28,10 @@ export default function Hero() {
           Pro further.
         </h3>
         <div className="flex justify-between items-center gap-4">
-          <p className="text-white text-lg">
-            From $1199 or $49.95/mo. for 24 mo.
+          <p className="text-white text-lg font-regular">
+            From $1199 or $49.95/mo. 
+            <br className="md:hidden" />
+            for 24 mo.
           </p>
           <button className="bg-primary text-lg text-white font-semibold cursor-pointer px-6 py-2 rounded-full hover:scale-105 transition-all duration-300 ease-in-out">
             Buy

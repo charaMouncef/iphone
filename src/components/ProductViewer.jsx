@@ -59,6 +59,7 @@ export default function ProductViewer() {
       <div className="flex flex-col items-center gap-5 py-6">
         <p className="text-lg text-center">
           Colors available:{" "}
+          <br className="md:hidden"/>
           <span className="text-white font-bold">
             {colors.map((color) => color.label).join(", ")}
           </span>
