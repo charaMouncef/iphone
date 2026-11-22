@@ -4,7 +4,7 @@ import { Iphone } from "./model/Iphone";
 import StudioLights from "./three/StudioLights";
 import { PresentationControls } from "@react-three/drei";
 
-function RotatingIphone() {
+function RotatingIphone({ color }) {
   const iphoneRef = useRef();
 
   useFrame((state, delta) => {
@@ -14,7 +14,7 @@ function RotatingIphone() {
   return (
     <group ref={iphoneRef}>
       <StudioLights />
-      <Iphone position={[0, -2.7, 0]} scale={30} />
+      <Iphone color={color} position={[0, -2.7, 0]} scale={30} />
     </group>
   );
 }
@@ -23,10 +23,10 @@ export default function ProductViewer() {
   const [selectedColor, setSelectedColor] = useState("black");
 
   const colors = [
-    { name: "black", label: "Black", bg: "bg-black" },
-    { name: "burgundy", label: "Burgundy", bg: "bg-red-900" },
-    { name: "white", label: "White", bg: "bg-white" },
-    { name: "silver", label: "Silver", bg: "bg-gray-400" },
+    { name: "burgundy", label: "Burgundy", value: "#6b1f2e", bg: "bg-red-900" },
+    { name: "black", label: "Black", value: "#1d1d1f", bg: "bg-black" },
+    { name: "white", label: "White", value: "#f5f5f7", bg: "bg-white" },
+    { name: "silver", label: "Silver", value: "#c7c7cc", bg: "bg-gray-400" },
   ];
 
   const controlsConfig = {
@@ -50,7 +50,9 @@ export default function ProductViewer() {
         gl={{ antialias: true, powerPreference: "high-performance" }}
       >
         <PresentationControls {...controlsConfig}>
-          <RotatingIphone />
+          <RotatingIphone
+            color={colors.find(({ name }) => name === selectedColor).value}
+          />
         </PresentationControls>
       </Canvas>
 

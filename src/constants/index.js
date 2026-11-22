@@ -6,3 +6,38 @@ export const navLinks = [
   { label: "Vision", link: "#" },
   { label: "AirPods", link: "https://airpods-mouncef.netlify.app" },
 ];
+
+// Model parts that keep their original material when the iPhone color changes:
+// glass, lenses, sensors, speakers, ports and the display itself.
+export const noChangeParts = [
+  "Front_Cam_Lens",
+  "Front_Cam_Glass",
+  "Front_Cam_Inset",
+  "Front_Cam_Base",
+  "Front_Speaker",
+  "Front_Sensor",
+  "Front_Screen",
+  "Front_Panel",
+  "Back_Cam_Lens",
+  "Back_Cam_Lens_02",
+  "Back_Cam_Lens_03",
+  "Back_Cam_Lens_Outer",
+  "Back_Cam_Aperture",
+  "Back_Cam_Black",
+  "Back_Cam_Base",
+  "Back_Cam_Base001",
+  "Back_Cam_Edge_black",
+  "Back_Cam_Glass",
+  "Back_Flash_Glass",
+  "Back_Flash_Glass_Matte",
+  "Back_Flash_Base",
+  "Back_Flash_Light",
+  "Back_Flash_Ref",
+  "Gradient",
+  "Back_IR_Glass",
+  "Back_Mic",
+  "Holes",
+  "Side_Panel_Speakers",
+  "USB_Metal",
+  "USB_Pin",
+];

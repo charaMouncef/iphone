@@ -1,107 +1,149 @@
+import { useEffect, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import { Color, SRGBColorSpace } from "three";
+import { noChangeParts } from "../../constants";
 
-export function Iphone(props) {
+export function Iphone({ color, ...props }) {
   const { nodes, materials } = useGLTF("/model/apple_iphone_18_pro.glb");
+  const groupRef = useRef();
+
+  useEffect(() => {
+    groupRef.current.traverse((child) => {
+      if (!child.isMesh || noChangeParts.includes(child.name)) return;
+
+      const parts = Array.isArray(child.material)
+        ? child.material
+        : [child.material];
+
+      parts.forEach((material) => {
+        // Any existing texture needs to be decoded as sRGB after a color change.
+        if (material.map) {
+          material.map.colorSpace = SRGBColorSpace;
+          material.map.needsUpdate = true;
+        }
+
+        material.color = new Color(color);
+        material.needsUpdate = true;
+      });
+    });
+  }, [color]);
 
   return (
-    <group {...props} dispose={null}>
+    <group {...props} ref={groupRef} dispose={null}>
       <mesh
+        name="Front_Cam_Lens"
         castShadow
         receiveShadow
         geometry={nodes.Front_Cam_Lens.geometry}
         material={materials.BASE_Cam_Lens_Front}
       />
       <mesh
+        name="USB_Metal"
         castShadow
         receiveShadow
         geometry={nodes.USB_Metal.geometry}
         material={materials.BASE_Chrome_Dark}
       />
       <mesh
+        name="Antenna"
         castShadow
         receiveShadow
         geometry={nodes.Antenna.geometry}
         material={materials.COLOUR_Black_Antenna}
       />
       <mesh
+        name="Front_Cam_Glass"
         castShadow
         receiveShadow
         geometry={nodes.Front_Cam_Glass.geometry}
         material={materials.BASE_Glass}
       />
       <mesh
+        name="Back_Panel"
         castShadow
         receiveShadow
         geometry={nodes.Back_Panel.geometry}
         material={materials.COLOUR_Black_Backpanel}
       />
       <mesh
+        name="Front_Speaker"
         castShadow
         receiveShadow
         geometry={nodes.Front_Speaker.geometry}
         material={materials.BASE_Speakers_Front}
       />
       <mesh
+        name="Front_Panel"
         castShadow
         receiveShadow
         geometry={nodes.Front_Panel.geometry}
         material={materials.BASE_Glass_Black}
       />
       <mesh
+        name="Back_Cam_Lens"
         castShadow
         receiveShadow
         geometry={nodes.Back_Cam_Lens.geometry}
         material={materials.BASE_Cam_Lens01}
       />
       <mesh
+        name="Back_Cam_Edge"
         castShadow
         receiveShadow
         geometry={nodes.Back_Cam_Edge.geometry}
         material={materials.COLOUR_Black_Side_Panel}
       />
       <mesh
+        name="Back_Flash_Glass"
         castShadow
         receiveShadow
         geometry={nodes.Back_Flash_Glass.geometry}
         material={materials.BASE_Flash_Glass}
       />
       <mesh
+        name="Back_Flash_Base"
         castShadow
         receiveShadow
         geometry={nodes.Back_Flash_Base.geometry}
         material={materials.BASE_Flash_Base}
       />
       <mesh
+        name="Back_Cam_Edge_black"
         castShadow
         receiveShadow
         geometry={nodes.Back_Cam_Edge_black.geometry}
         material={materials.BASE_Cam_Edge_Black}
       />
       <mesh
+        name="Back_Cam_Glass"
         castShadow
         receiveShadow
         geometry={nodes.Back_Cam_Glass.geometry}
         material={materials.BASE_Glass}
       />
       <mesh
+        name="Back_Cam_Base"
         castShadow
         receiveShadow
         geometry={nodes.Back_Cam_Base.geometry}
         material={materials.BASE_Grey}
       />
       <mesh
+        name="Back_Flash_Light"
         castShadow
         receiveShadow
         geometry={nodes.Back_Flash_Light.geometry}
         material={materials.BASE_Flash_Light}
       />
       <mesh
+        name="Back_Flash_Ref"
         castShadow
         receiveShadow
         geometry={nodes.Back_Flash_Ref.geometry}
         material={materials.BASE_Flash_Ref}
       >
         <mesh
+          name="Gradient"
           castShadow
           receiveShadow
           geometry={nodes.Gradient.geometry}
@@ -109,156 +151,182 @@ export function Iphone(props) {
         />
       </mesh>
       <mesh
+        name="Screws_Aniso_01"
         castShadow
         receiveShadow
         geometry={nodes.Screws_Aniso_01.geometry}
         material={materials.COLOUR_Black_Aniso}
       />
       <mesh
+        name="Screws_Aniso_02"
         castShadow
         receiveShadow
         geometry={nodes.Screws_Aniso_02.geometry}
         material={materials.COLOUR_Black_Aniso}
       />
       <mesh
+        name="Side_Panel_Speakers"
         castShadow
         receiveShadow
         geometry={nodes.Side_Panel_Speakers.geometry}
         material={materials.BASE_Speakers}
       />
       <mesh
+        name="USB_Border"
         castShadow
         receiveShadow
         geometry={nodes.USB_Border.geometry}
         material={materials.COLOUR_Black_Antenna}
       />
       <mesh
+        name="USB_Base"
         castShadow
         receiveShadow
         geometry={nodes.USB_Base.geometry}
         material={materials.COLOUR_Black_Plastic}
       />
       <mesh
+        name="USB_Pin"
         castShadow
         receiveShadow
         geometry={nodes.USB_Pin.geometry}
         material={materials.BASE_Copper}
       />
       <mesh
+        name="Back_Cam_Black"
         castShadow
         receiveShadow
         geometry={nodes.Back_Cam_Black.geometry}
         material={materials.BASE_Black}
       />
       <mesh
+        name="Holes"
         castShadow
         receiveShadow
         geometry={nodes.Holes.geometry}
         material={materials.BASE_Black}
       />
       <mesh
+        name="Back_Cam_Lens_02"
         castShadow
         receiveShadow
         geometry={nodes.Back_Cam_Lens_02.geometry}
         material={materials.BASE_Cam_Lens02}
       />
       <mesh
+        name="Back_Cam_Lens_03"
         castShadow
         receiveShadow
         geometry={nodes.Back_Cam_Lens_03.geometry}
         material={materials.BASE_Cam_Lens03}
       />
       <mesh
+        name="Back_IR_Glass"
         castShadow
         receiveShadow
         geometry={nodes.Back_IR_Glass.geometry}
         material={materials.BASE_Sensor}
       />
       <mesh
+        name="Front_Screen"
         castShadow
         receiveShadow
         geometry={nodes.Front_Screen.geometry}
         material={materials.COLOUR_Black_Screen}
       />
       <mesh
+        name="Back_Mic"
         castShadow
         receiveShadow
         geometry={nodes.Back_Mic.geometry}
         material={materials.BASE_Black}
       />
       <mesh
+        name="Side_Button_Detail_Border"
         castShadow
         receiveShadow
         geometry={nodes.Side_Button_Detail_Border.geometry}
         material={materials.COLOUR_Black_Button_Detail_Border}
       />
       <mesh
+        name="Front_Sensor"
         castShadow
         receiveShadow
         geometry={nodes.Front_Sensor.geometry}
         material={materials.BASE_Sensor}
       />
       <mesh
+        name="Side_Panel"
         castShadow
         receiveShadow
         geometry={nodes.Side_Panel.geometry}
         material={materials.COLOUR_Black_Side_Panel}
       />
       <mesh
+        name="Back_Flash_Glass_Matte"
         castShadow
         receiveShadow
         geometry={nodes.Back_Flash_Glass_Matte.geometry}
         material={materials["BASE_Flash_Glass duplicate"]}
       />
       <mesh
+        name="Back_Logo"
         castShadow
         receiveShadow
         geometry={nodes.Back_Logo.geometry}
         material={materials.COLOUR_Black_Apple}
       />
       <mesh
+        name="Screws"
         castShadow
         receiveShadow
         geometry={nodes.Screws.geometry}
         material={materials.COLOUR_Black_Screws}
       />
       <mesh
+        name="Side_Button"
         castShadow
         receiveShadow
         geometry={nodes.Side_Button.geometry}
         material={materials.COLOUR_Black_Side_Button_Detail}
       />
       <mesh
+        name="Back_Cam_Aperture"
         castShadow
         receiveShadow
         geometry={nodes.Back_Cam_Aperture.geometry}
         material={materials.BASE_Grey}
       />
       <mesh
+        name="Front_Cam_Inset"
         castShadow
         receiveShadow
         geometry={nodes.Front_Cam_Inset.geometry}
         material={materials.BASE_Black}
       />
       <mesh
+        name="Front_Cam_Base"
         castShadow
         receiveShadow
         geometry={nodes.Front_Cam_Base.geometry}
         material={materials.BASE_Grey}
       />
       <mesh
+        name="Side_Panel_Gloss"
         castShadow
         receiveShadow
         geometry={nodes.Side_Panel_Gloss.geometry}
         material={materials.COLOUR_Black_Side_Panel_Gloss}
       />
       <mesh
+        name="Back_Cam_Base001"
         castShadow
         receiveShadow
         geometry={nodes.Back_Cam_Base001.geometry}
         material={materials.BASE_Grey_02}
       />
       <mesh
+        name="Back_Cam_Lens_Outer"
         castShadow
         receiveShadow
         geometry={nodes.Back_Cam_Lens_Outer.geometry}
@@ -268,4 +336,4 @@ export function Iphone(props) {
   );
 }
 
-useGLTF.preload("/model/apple_iphone_18_pro_max_black.glb");
+useGLTF.preload("/model/apple_iphone_18_pro.glb");

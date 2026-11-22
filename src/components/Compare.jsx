@@ -63,7 +63,7 @@ export default function Compare() {
       </div>
       <img
         className="mt-8 w-full max-w-2xl mx-auto"
-        src="iphone.jpg"
+        src="/iphone.jpg"
         alt="iPhone 18 Pro"
         width={800}
         height={600}
