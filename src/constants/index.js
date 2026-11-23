@@ -41,3 +41,40 @@ export const noChangeParts = [
   "USB_Metal",
   "USB_Pin",
 ];
+
+export const iphoneColors = [
+    { name: "burgundy", label: "Burgundy", value: "#6b1f2e", bg: "bg-red-900" },
+    { name: "black", label: "Black", value: "#1d1d1f", bg: "bg-black" },
+    { name: "white", label: "White", value: "#f5f5f7", bg: "bg-white" },
+    { name: "silver", label: "Silver", value: "#c7c7cc", bg: "bg-gray-400" },
+  ];
+
+export const cameraFocus = [
+  {
+    focus: "f/1.48",
+    title: "Maximum light.",
+    image: "/max_light.jpg",
+    description:
+      "Around 50 percent better low-light performance — great for indoor \n scenes.5 Take better-quality Night mode photos faster.",
+  },
+  {
+    focus: "f/1.8",
+    title : "Default.",
+    image: "/balance.jpg",
+    description: "A versatile balance between low light and depth.",
+  },
+  {
+    focus: "f/2.8",
+    title: "More depth.",
+    image: "/depth.jpg",
+    description:
+      "A narrow aperture lets you capture detail farther back in the scene.",
+  },
+  {
+    focus: "f/4.0",
+    title: "Maximum depth.",
+    image: "/max_depth.jpg",
+    description:
+      "Use Pro controls to create artful effects manually, like a luminous \n starburst from bright light.",
+  },
+];

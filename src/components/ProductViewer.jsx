@@ -3,6 +3,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Iphone } from "./model/Iphone";
 import StudioLights from "./three/StudioLights";
 import { PresentationControls } from "@react-three/drei";
+import { iphoneColors } from "../constants";
 
 function RotatingIphone({ color }) {
   const iphoneRef = useRef();
@@ -20,14 +21,9 @@ function RotatingIphone({ color }) {
 }
 
 export default function ProductViewer() {
-  const [selectedColor, setSelectedColor] = useState("black");
+  const [selectedColor, setSelectedColor] = useState("burgundy");
 
-  const colors = [
-    { name: "burgundy", label: "Burgundy", value: "#6b1f2e", bg: "bg-red-900" },
-    { name: "black", label: "Black", value: "#1d1d1f", bg: "bg-black" },
-    { name: "white", label: "White", value: "#f5f5f7", bg: "bg-white" },
-    { name: "silver", label: "Silver", value: "#c7c7cc", bg: "bg-gray-400" },
-  ];
+  
 
   const controlsConfig = {
     snap: true,
@@ -51,29 +47,30 @@ export default function ProductViewer() {
       >
         <PresentationControls {...controlsConfig}>
           <RotatingIphone
-            color={colors.find(({ name }) => name === selectedColor).value}
+            color={
+              iphoneColors.find(({ name }) => name === selectedColor).value
+            }
           />
         </PresentationControls>
       </Canvas>
 
       <div className="flex flex-col items-center gap-5 py-6">
         <p className="text-lg text-center">
-          Colors available:{" "}
-          <br className="md:hidden"/>
+          Colors available: <br className="md:hidden" />
           <span className="text-white font-bold">
-            {colors.map((color) => color.label).join(", ")}
+            {iphoneColors.map((color) => color.label).join(", ")}
           </span>
         </p>
 
-        <div className="bg-gray-500 flex items-center gap-5 py-3 px-8 rounded-full">
-          {colors.map((color) => (
+        <div className="bg-dark-100 flex items-center gap-5 py-3 px-8 rounded-full">
+          {iphoneColors.map((color) => (
             <button
               key={color.name}
               onClick={() => setSelectedColor(color.name)}
               aria-label={color.label}
               className={`${color.bg} w-6 h-6 rounded-full transition-all duration-200 cursor-pointer ${
                 selectedColor === color.name
-                  ? "ring-2 ring-white ring-offset-4 ring-offset-gray-700"
+                  ? "ring-2 ring-white ring-offset-3 ring-offset-dark-100 scale-110"
                   : "hover:scale-110"
               }`}
             />
