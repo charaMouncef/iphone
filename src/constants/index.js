@@ -1,7 +1,7 @@
 export const navLinks = [
   { label: "Store", link: "#" },
   { label: "Mac", link: "https://macbook3d-mouncef.netlify.app" },
-  { label: "iPhone", link: "#" },
+  { label: "iPhone", link: "https://iphone-mouncef.netlify.app" },
   { label: "Watch", link: "https://watch3d-mouncef.netlify.app" },
   { label: "Vision", link: "#" },
   { label: "AirPods", link: "https://airpods-mouncef.netlify.app" },

@@ -1,8 +1,8 @@
-import { useState, useRef } from "react";
+import { useState, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Iphone } from "./model/Iphone";
 import StudioLights from "./three/StudioLights";
-import { PresentationControls } from "@react-three/drei";
+import { Html,PresentationControls } from "@react-three/drei";
 import { iphoneColors } from "../constants";
 
 function RotatingIphone({ color }) {
@@ -43,13 +43,24 @@ export default function ProductViewer() {
         dpr={[1, 1.5]}
         gl={{ antialias: true, powerPreference: "high-performance" }}
       >
-        <PresentationControls {...controlsConfig}>
-          <RotatingIphone
-            color={
-              iphoneColors.find(({ name }) => name === selectedColor).value
-            }
-          />
-        </PresentationControls>
+        <Suspense
+          fallback={
+            <Html center style={{ pointerEvents: "none" }}>
+              Loading...
+            </Html>
+          }
+        >
+          <PresentationControls {...controlsConfig}>
+            <RotatingIphone
+              color={
+                (
+                  iphoneColors.find(({ name }) => name === selectedColor) ??
+                  iphoneColors[0]
+                ).value
+              }
+            />
+          </PresentationControls>
+        </Suspense>
       </Canvas>
 
       <div className="flex flex-col items-center gap-5 py-6">
