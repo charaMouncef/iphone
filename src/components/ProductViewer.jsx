@@ -23,8 +23,6 @@ function RotatingIphone({ color }) {
 export default function ProductViewer() {
   const [selectedColor, setSelectedColor] = useState("burgundy");
 
-  
-
   const controlsConfig = {
     snap: true,
     speed: 1,

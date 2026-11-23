@@ -59,7 +59,7 @@ export default function Camera() {
         ))}
       </div>
 
-      <p className="w-[50%] text-center mt-8">
+      <p className="w-[50%] text-center my-8">
         <span className="text-[#FFD500]">{selectedFocus.focus}</span>{" "}
         <span className="text-white font-bold">{selectedFocus.title}</span>{" "}
         <span className="text-white/80"> {selectedFocus.description}</span>

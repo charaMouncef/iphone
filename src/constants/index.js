@@ -43,11 +43,11 @@ export const noChangeParts = [
 ];
 
 export const iphoneColors = [
-    { name: "burgundy", label: "Burgundy", value: "#6b1f2e", bg: "bg-red-900" },
-    { name: "black", label: "Black", value: "#1d1d1f", bg: "bg-black" },
-    { name: "white", label: "White", value: "#f5f5f7", bg: "bg-white" },
-    { name: "silver", label: "Silver", value: "#c7c7cc", bg: "bg-gray-400" },
-  ];
+  { name: "burgundy", label: "Burgundy", value: "#6b1f2e", bg: "bg-red-900" },
+  { name: "black", label: "Black", value: "#1d1d1f", bg: "bg-black" },
+  { name: "white", label: "White", value: "#f5f5f7", bg: "bg-white" },
+  { name: "silver", label: "Silver", value: "#c7c7cc", bg: "bg-gray-400" },
+];
 
 export const cameraFocus = [
   {
@@ -59,7 +59,7 @@ export const cameraFocus = [
   },
   {
     focus: "f/1.8",
-    title : "Default.",
+    title: "Default.",
     image: "/balance.jpg",
     description: "A versatile balance between low light and depth.",
   },
@@ -76,5 +76,57 @@ export const cameraFocus = [
     image: "/max_depth.jpg",
     description:
       "Use Pro controls to create artful effects manually, like a luminous \n starburst from bright light.",
+  },
+];
+
+export const cardsList = [
+  {
+    id: "upgrade",
+    title: "Apple Upgrade",
+    description: "Love it. Lease it. Upgrade it.",
+    img: "/features/apple_upgrade.jpg",
+    alt: "Apple Upgrade",
+  },
+  {
+    id: "deals",
+    title: "Carrier Deals",
+    description: "Apple. Your one‑stop shop for incredible carrier deals.",
+    img: "/features/carrier_deals.jpg",
+    alt: "Carrier Deals",
+  },
+  {
+    id: "trade-in",
+    title: "Apple Trade In",
+    description: "Save on a new iPhone with trade-in.",
+    img: "/features/apple_trade_in.jpg",
+    alt: "Apple Trade In",
+  },
+  {
+    id: "ways-to-buy",
+    title: "Ways to Buy",
+    description: "Pay over time, interest-free.",
+    img: "/features/card.jpg",
+    alt: "Apple Ways to Buy",
+  },
+  {
+    id: "personal-setup",
+    title: "Personal Setup",
+    description: "Meet your new iPhone with Personal Setup.",
+    img: "/features/personal_setup.jpg",
+    alt: "Apple Personal Setup",
+  },
+  {
+    id: "delivery-and-pickup",
+    title: "Delivery and Pickup",
+    description: "Get your order quickly and easily.",
+    img: "/features/delivery_and_pickup.jpg",
+    alt: "Apple Delivery and Pickup",
+  },
+  {
+    id: "store-app",
+    title: "Apple Store App",
+    description: "Explore a shopping experience designed around you.",
+    img: "/features/apple_store_app.jpg",
+    alt: "Apple Store App",
   },
 ];
